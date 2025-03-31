@@ -22,6 +22,7 @@ function updateContent() {
     document.getElementById("go-to-week-btn").style.display = "none";
   }
 
+  // Show weeks only after section selection
   if (section) {
     document.getElementById("week-dropdown").style.display = "block";
   }
