@@ -37,8 +37,16 @@
         <label for="section" class="block font-medium text-gray-700">Select Section:</label>
         <select id="section" onchange="updateContent()" class="w-full p-2 border border-gray-300 rounded-md">
           <option value="">--Select Section--</option>
-          <option value="a">Section A</option>
-          <option value="b">Section B</option>
+          <!-- Default sections for Year 7 and Year 9 -->
+          <option class="year7-year9-sections" value="a">Section A</option>
+          <option class="year7-year9-sections" value="b">Section B</option>
+          <!-- Sections for Year 8 -->
+          <option class="year8-sections" value="1.1">Section 1.1</option>
+          <option class="year8-sections" value="1.2">Section 1.2</option>
+          <option class="year8-sections" value="2.1">Section 2.1</option>
+          <option class="year8-sections" value="2.2">Section 2.2</option>
+          <option class="year8-sections" value="3.1">Section 3.1</option>
+          <option class="year8-sections" value="3.2">Section 3.2</option>
         </select>
       </div>
 
@@ -47,9 +55,14 @@
         <label for="week" class="block font-medium text-gray-700">Select Week:</label>
         <select id="week" onchange="updateContent()" class="w-full p-2 border border-gray-300 rounded-md">
           <option value="">--Select Week--</option>
+          <!-- Week 1 to Week 7 for each section -->
           <option value="1">Week 1</option>
           <option value="2">Week 2</option>
           <option value="3">Week 3</option>
+          <option value="4">Week 4</option>
+          <option value="5">Week 5</option>
+          <option value="6">Week 6</option>
+          <option value="7">Week 7</option>
         </select>
       </div>
 
