@@ -1,2 +1,2 @@
-# Fluentify-App
-Source code for Fluebtify App
+# Fluentify App
+Source code for Fluentify App
