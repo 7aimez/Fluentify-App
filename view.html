@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Language Learning - Week</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+  <div class="bg-white p-8 rounded-xl shadow-xl w-96">
+    <h1 class="text-2xl font-semibold mb-6 text-center">Language Learning - Week</h1>
 
+    <div id="selection-info" class="mb-4 text-center">
+      <!-- Display the user's selection here -->
+    </div>
+
+    <div id="words-container">
+      <!-- Words for the selected week will go here -->
+    </div>
+
+    <div class="mt-4 text-center">
+      <button onclick="goBack()" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">
+        Go Back
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Get URL parameters
+    const urlParams = new URLSearchParams(window.location.search);
+    const language = urlParams.get('l');
+    const year = urlParams.get('y');
+    const section = urlParams.get('s');
+    const week = urlParams.get('w');
+
+    // Display selected language, year, section, and week
+    document.getElementById('selection-info').innerHTML = `
+      <p><strong>Language:</strong> ${language.charAt(0).toUpperCase() + language.slice(1)}</p>
+      <p><strong>Year:</strong> ${year}</p>
+      <p><strong>Section:</strong> ${section}</p>
+      <p><strong>Week:</strong> ${week}</p>
+    `;
+
+    // You will add the words for each week here
+    const words = {
+      spanish: {
+        "1.1": {
+          "1": ["aprovechar", "quedar", "pintar", "ayudar", "la pared", "el verano", "pasadao", "pasada", "libre", "el máximo", "antes", "sin embargo", "poco", "negro", "negra"],
+          "2": ["cantar", "tomar", "coger", "cojo", "intendar", "ganar", "el concierto", "el premio", "el año", "el autobus", "hasta", "además", "por", "la canción"],
+          "3": ["Libro", "Pluma", "Papel", "Silla", "Mesa"],
+          // Add more weeks here as needed
+        },
+        "1.2": {
+          "1": ["Buenos días", "Buenas tardes", "Buenas noches", "Hasta luego", "Nos vemos"],
+          "2": ["Perro", "Gato", "Pájaro", "Conejo", "Caballo"],
+          // Add more weeks here
+        },
+        // Add more sections and weeks as needed
+      },
+      french: {
+        "1.1": {
+          "1": ["Bonjour", "Au revoir", "Merci", "S'il vous plaît", "Excusez-moi"],
+          "2": ["Ami", "Famille", "Maison", "École", "Travail"],
+          "3": ["Livre", "Stylo", "Papier", "Chaise", "Table"],
+          // Add more weeks here as needed
+        },
+        "1.2": {
+          "1": ["Bonjour", "Bonsoir", "Bonne nuit", "À bientôt", "À tout à l'heure"],
+          "2": ["Chien", "Chat", "Oiseau", "Lapin", "Cheval"],
+          // Add more weeks here
+        },
+        // Add more sections and weeks as needed
+      }
+    };
+
+    // Get the words for the selected week
+    function getWordsForWeek() {
+      if (language && year && section && week && words[language] && words[language][section] && words[language][section][week]) {
+        const wordList = words[language][section][week];
+        let wordListHTML = "<ul class='list-disc pl-5'>";
+        wordList.forEach(word => {
+          wordListHTML += `<li>${word}</li>`;
+        });
+        wordListHTML += "</ul>";
+        document.getElementById('words-container').innerHTML = wordListHTML;
+      } else {
+        document.getElementById('words-container').innerHTML = "<p class='text-red-500'>No words available for this selection.</p>";
+      }
+    }
+
+    // Call the function to load words based on the selection
+    getWordsForWeek();
+
+    // Go back to the main page
+    function goBack() {
+      window.location.href = "index.html";
+    }
+  </script>
+</body>
+</html>
