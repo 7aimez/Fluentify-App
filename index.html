@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Language Learning App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-container">
+    <h1>Language Learning App</h1>
+    <div class="dropdowns">
+      <!-- Language Dropdown -->
+      <div class="dropdown">
+        <label for="language">Select Language:</label>
+        <select id="language" onchange="updateContent()">
+          <option value="">--Select Language--</option>
+          <option value="spanish">Spanish</option>
+          <option value="french">French</option>
+        </select>
+      </div>
+
+      <!-- Year Group Dropdown -->
+      <div class="dropdown" id="year-group-dropdown" style="display:none;">
+        <label for="year-group">Select Year Group:</label>
+        <select id="year-group" onchange="updateContent()">
+          <option value="">--Select Year Group--</option>
+          <option value="1">Year 1</option>
+          <option value="2">Year 2</option>
+          <option value="3">Year 3</option>
+        </select>
+      </div>
+
+      <!-- Section Dropdown -->
+      <div class="dropdown" id="section-dropdown" style="display:none;">
+        <label for="section">Select Section:</label>
+        <select id="section" onchange="updateContent()">
+          <option value="">--Select Section--</option>
+          <option value="a">Section A</option>
+          <option value="b">Section B</option>
+        </select>
+      </div>
+
+      <!-- Week Dropdown -->
+      <div class="dropdown" id="week-dropdown" style="display:none;">
+        <label for="week">Select Week:</label>
+        <select id="week">
+          <option value="">--Select Week--</option>
+          <option value="1">Week 1</option>
+          <option value="2">Week 2</option>
+          <option value="3">Week 3</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Display Selection -->
+    <div id="selected-info" style="margin-top: 20px;">
+      <h2>Your Selection</h2>
+      <p id="selection-output"></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
